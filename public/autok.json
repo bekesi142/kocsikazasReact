@@ -1,0 +1,38 @@
+{ "autok": [
+  {
+    "marka": "Toyota",
+    "modell": "Corolla",
+    "evjarat": 2020,
+    "uzemanyag": "benzin",
+    "sebessegvalto": "manuális/automata",
+    "ar": 5200000,
+    "img": "/img/corolla.jpg"
+  },
+  {
+    "marka": "Volkswagen",
+    "modell": "Golf",
+    "evjarat": 2019,
+    "uzemanyag": "dízel",
+    "sebessegvalto": "automata",
+    "ar": 4600000,
+    "img": "/img/golf.jpg"
+  },
+  {
+    "marka": "Ford",
+    "modell": "Focus",
+    "evjarat": 2021,
+    "uzemanyag": "hibrid",
+    "sebessegvalto": "automata",
+    "ar": 6100000,
+    "img": "/img/focus.jpg"
+  },
+  {
+    "marka": "Honda",
+    "modell": "Civic",
+    "evjarat": 2018,
+    "uzemanyag": "benzin",
+    "sebessegvalto": "manuális",
+    "ar": 4300000,
+    "img": "/img/civic.jpg"
+  }
+]}
