@@ -12,6 +12,7 @@ type CarType = {
 
 const Carousel = () => {
     const [cars, setCars] = useState<CarType[]>([])
+    const [carIdx, setCarIdx] = useState(0)
 
     useEffect(() => {
         fetch("autok.json")
@@ -26,11 +27,38 @@ const Carousel = () => {
 
     }, [])
 
+    const increase = () => {
+        setCarIdx(prev => prev + 1 == cars.length ? 0 : prev + 1)
+    }
+    const decrease = () => {
+        setCarIdx(prev => prev - 1 < 0 ? cars.length - 1 : prev - 1)
+    }
+
+    const [divOpen, setDivOpen] = useState(false)
+
 
 
 
     return (
-        <div>Carousel</div>
+        <div>
+            {
+                cars.length > 0 && <>
+                    <button onClick={increase}>🦛</button>
+                    <img className='kocsiKep' onClick={() => setDivOpen(prev => !prev)} src={cars[carIdx].img} />
+                    <button onClick={decrease}>🐌</button>
+
+                    {divOpen &&
+                        <div className='container'>
+                            <div className='sokKocsisDiv'>
+                                {cars.map(car => <img src={car.img} />)}
+                            </div>
+                        </div>}
+
+
+                </>
+            }
+
+        </div>
     )
 }
 
