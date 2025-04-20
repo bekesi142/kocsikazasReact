@@ -90,14 +90,7 @@ const ProductList: React.FC = () => {
         }
     }
 
-    for (let i = 0; i < products.length; i++) {
-        let product = products[i];
-
-        // Ha a termék kategóriája megegyezik a szűrővel, hozzáadjuk a szűrt listához
-        if (product.id === selectedProduct) {
-            setSelectedProductMaga(product);
-        }
-    }
+    
 
 
 
