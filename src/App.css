@@ -1,14 +1,25 @@
 :root {
   --sotetbarna: rgb(95, 34, 9);
+  
 }
 
 body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row;
   background-color: rgb(206, 204, 200);
   color: var(--sotetbarna);
 
+}
+
+.main-container {
+  display: flex;
+  align-items: top;
+  justify-content: center;
+  flex-direction: row;
+  gap: 3rem;
+  min-width: 30rem;
 }
 
 .nagyDiv {
@@ -59,6 +70,14 @@ body {
 
 }
 
+.product-details {
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: rgb(193, 187, 174);
+  min-width: 15rem;
+  margin-top: 2rem;
+}
+
 .product-list {
   display: flex;
   flex-direction: column;
@@ -77,8 +96,13 @@ body {
   cursor: pointer;
 }
 
+.list-item:hover {
+  transform: scale(1.07);
+}
+
 .selected-item {
-  background-color: rgba(42, 120, 165, 0.178);
+  background-color: rgb(193, 187, 174);
+  transform: scale(1.07);
 }
 
 ul {
@@ -102,14 +126,73 @@ ul {
     padding: 10px 
 }
 
+.filter-buttons {
+  display: flex;
+  gap: 0.2rem;
+}
+
 button {
   background-color: rgba(0, 0, 0, 0.041);
   color: rgb(95, 34, 9);
   border: 1px solid rgb(95, 34, 9);
+  transition: all 0.2s;
   padding: 1rem;
   border-radius: 1rem;
   font-weight: bold;
   cursor: pointer;
+}
+
+.kosarhozAdas {
+  width: 10rem;
+  font-size: 20px;
+}
+
+.kosarba-section {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1rem;
+  background-color: rgb(193, 187, 174);
+  min-height: 10rem;
+}
+
+.kosarbanLevoElem {
+  min-width: 15rem;
+  padding: 0 10px;
+  border-radius: 1rem;
+  background-color: rgb(209, 203, 188);
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-between;
+
+  button {
+    border: none;
+    border-radius: 0.5rem;
+    padding: 10px;
+  }
+}
+
+button:hover {
+  background-color: rgb(193, 187, 174);
+  
+}
+
+.urites {
+  background-color: var(--sotetbarna);
+  color: whitesmoke;
+  margin-bottom: 0.5rem;
+}
+
+.urites:hover {
+  background-color: var(--sotetbarna);
+}
+
+button:active {
+  background-color: rgb(193, 187, 174);
 }
 
 @keyframes slideIn {
@@ -122,9 +205,9 @@ button {
 .container {
   display: flex;
 
-  text-align: center;
+  
   justify-content: center;
   align-items: center;
-  animation: slideIn 0.6s ease-out forwards;
+ 
 
 }

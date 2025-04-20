@@ -10,17 +10,47 @@ type ProductType = {
     image: string
 }
 
+type KosarItem = {
+    product: ProductType;
+    quantity: number;
+}
+
 const ProductList: React.FC = () => {
     // Alap state-ek definiálása
     const [products, setProducts] = useState<ProductType[]>([]);
     const [selectedProduct, setSelectedProduct] = useState<number | null>(null);
     const [filteredCategory, setFilteredCategory] = useState<string>('all');
-    const [selectedProductMaga, setSelectedProductMaga] = useState<ProductType>();
+    const [kosar, setKosar] = useState<KosarItem[]>([])
+
 
     // FELADAT 1: Készíts egy új useState hook-ot az oldalszámozáshoz
     // Kell egy currentPage state, ami alapértelmezetten 1
     // A kódod ide írd:
-    const [currentPage, setCurrentPage] = useState(1);
+
+
+    function kosarbaTesz(termek: ProductType) {
+        // Ellenőrizzük, hogy a termék már benne van-e a kosárban
+        const termekIndex = kosar.findIndex(item => item.product.id === termek.id);
+
+        if (termekIndex !== -1) {
+            // Ha már benne van, növeljük a mennyiséget
+            const ujKosar = [...kosar];
+            ujKosar[termekIndex].quantity += 1;
+            setKosar(ujKosar);
+        } else {
+            // Ha még nincs benne, adjuk hozzá új elemként 1 mennyiséggel
+            setKosar([...kosar, { product: termek, quantity: 1 }]);
+        }
+    }
+
+    function deleteFromKosar(termekId: number) {
+        const ujKosar = kosar.filter(item => item.product.id !== termekId);
+        setKosar(ujKosar);
+    }
+
+    function clearKosar() {
+        setKosar([])
+    }
 
 
     // Termékek betöltése useEffect-tel
@@ -90,38 +120,40 @@ const ProductList: React.FC = () => {
         }
     }
 
-    
+
 
 
 
 
 
     return (
-        <div className="product-container">
-            {/* Kategória szűrő */}
-            <div className="filter-section">
-                <h3>Kategóriák</h3>
-                <div className="filter-buttons">
-                    <button onClick={() => setFilteredCategory('all')}>
-                        Összes
-                    </button>
-                    <button onClick={() => setFilteredCategory('elektronika')}>
-                        Elektronika
-                    </button>
-                    <button onClick={() => setFilteredCategory('ruházat')}>
-                        Ruházat
-                    </button>
-                    <button onClick={() => setFilteredCategory('élelmiszer')}>
-                        Élelmiszer
-                    </button>
-                </div>
-            </div>
+        <>
+            <div className='main-container'>
+                <div className="shop-section">
+                    {/* Kategória szűrő */}
+                    <div className="filter-section">
+                        <h3>Kategóriák</h3>
+                        <div className="filter-buttons">
+                            <button onClick={() => setFilteredCategory('all')}>
+                                Összes
+                            </button>
+                            <button onClick={() => setFilteredCategory('elektronika')}>
+                                Elektronika
+                            </button>
+                            <button onClick={() => setFilteredCategory('ruházat')}>
+                                Ruházat
+                            </button>
+                            <button onClick={() => setFilteredCategory('élelmiszer')}>
+                                Élelmiszer
+                            </button>
+                        </div>
+                    </div>
 
-            {/* Termékek listája */}
-            <div className="product-list">
-                <h2>Termékek</h2>
+                    {/* Termékek listája */}
+                    <div className="product-list">
+                        <h2>Termékek - {filteredCategory}</h2>
 
-                {/* FELADAT 5: Készítsd el a termékek listáját mapping segítségével
+                        {/* FELADAT 5: Készítsd el a termékek listáját mapping segítségével
                    - Használd a filteredProducts változót a map függvényhez
                    - Minden termék egy kártyában jelenjen meg, benne:
                       * Termék neve
@@ -130,51 +162,78 @@ const ProductList: React.FC = () => {
                    - A kártyára kattintva hívja meg a selectProduct függvényt
                    - A kiválasztott termék kártyája legyen kiemelve
                    A kódod ide írd: */}
-                <div className='product-list'>
-                    {filteredProducts.map(product =>
-                        <div onClick={() => selectProduct(product.id)}
-                            className={selectedProduct === product.id ?
-                                'list-item selected-item' : 'list-item'}
-                            key={product.id}>
-                            <p>{product.name}</p>
-                            <p>{product.price} Ft</p>
+                        <div className='product-list'>
+                            {filteredProducts.map(product =>
+                                <div onClick={() => selectProduct(product.id)}
+                                    className={selectedProduct === product.id ?
+                                        'list-item selected-item' : 'list-item'}
+                                    key={product.id}>
+                                    <p>{product.name}</p>
+                                    <p>{product.price} Ft</p>
+                                </div>
+                            )}
                         </div>
-                    )}
-                </div>
 
 
-            </div>
-
-            {/* Termék részletek panel */}
-            <div className="product-details">
-                <h2>Termék részletei</h2>
-                {selectedProduct !== null ? (
-                    <div>
-                        {/* Megkeressük a kiválasztott terméket az ID alapján */}
-                        {(() => {
-                            // Itt keressük meg a terméket ID alapján
-                            const selectedProductObject = products.find(product => product.id === selectedProduct);
-
-                            // Ha megtaláltuk a terméket, jelenítsük meg a részleteit
-                            if (selectedProductObject) {
-                                return (
-                                    <div className="product-detail-card">
-                                        <h3>{selectedProductObject.name}</h3>
-                                        <p>Kategória: {selectedProductObject.category}</p>
-                                        <p>Ár: {selectedProductObject.price} Ft</p>
-                                        <p>Készleten: {selectedProductObject.stock} db</p>
-                                    </div>
-                                );
-                            } else {
-                                return <p>A termék nem található</p>;
-                            }
-                        })()}
                     </div>
-                ) : (
-                    <p>Válassz egy terméket a részletekért</p>
-                )}
+
+
+                </div>
+                <div className='ordering-section'>
+                    {/* Termék részletek panel */}
+                    <div className="product-details">
+                        <h2>Termék részletei</h2>
+                        {selectedProduct !== null ? (
+                            <div>
+                                {/* Megkeressük a kiválasztott terméket az ID alapján */}
+                                {(() => {
+                                    // Itt keressük meg a terméket ID alapján
+                                    const selectedProductObject = products.find(product => product.id === selectedProduct);
+
+                                    // Ha megtaláltuk a terméket, jelenítsük meg a részleteit
+                                    if (selectedProductObject) {
+                                        return (
+                                            <div className="product-detail-card">
+                                                <h3>{selectedProductObject.name}</h3>
+                                                <p>Kategória: {selectedProductObject.category}</p>
+                                                <p>Ár: {selectedProductObject.price} Ft</p>
+                                                <p>Készleten: {selectedProductObject.stock} db</p>
+                                            </div>
+                                        );
+                                    } else {
+                                        return <p>A termék nem található</p>;
+                                    }
+                                })()}
+                            </div>
+                        ) : (
+                            <p>Válassz egy terméket a részletekért</p>
+                        )}
+                    </div>
+                    <div className='kosarba-section'>
+                        <h2>Kosár</h2>
+                        <button className='urites' onClick={() => clearKosar()}>Kosár ürítése</button>
+                        <button className='kosarhozAdas' onClick={() => {
+                            const selectedProductObject = products.find(product => product.id === selectedProduct);
+                            if (selectedProductObject) {
+                                kosarbaTesz(selectedProductObject);
+                            }
+
+                        }} >+</button>
+                        <div className='kosar-termekei'>
+                            {kosar.map(item => (
+                                <div className='kosarbanLevoElem'>
+                                    <div>
+                                        {item.product.name} - {item.product.price} Ft x
+                                        {item.quantity}
+                                    </div>
+                                    <button onClick={() => deleteFromKosar(item.product.id)}>x</button>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 
