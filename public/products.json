@@ -1,0 +1,124 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Laptop",
+        "price": 250000,
+        "category": "elektronika",
+        "stock": 10,
+        "image": "laptop.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Okostelefon",
+        "price": 150000,
+        "category": "elektronika",
+        "stock": 15,
+        "image": "smartphone.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Televízió",
+        "price": 180000,
+        "category": "elektronika",
+        "stock": 8,
+        "image": "tv.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Fejhallgató",
+        "price": 25000,
+        "category": "elektronika",
+        "stock": 20,
+        "image": "headphones.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Tablet",
+        "price": 120000,
+        "category": "elektronika",
+        "stock": 12,
+        "image": "tablet.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Póló",
+        "price": 5000,
+        "category": "ruházat",
+        "stock": 30,
+        "image": "tshirt.jpg"
+      },
+      {
+        "id": 7,
+        "name": "Farmernadrág",
+        "price": 12000,
+        "category": "ruházat",
+        "stock": 25,
+        "image": "jeans.jpg"
+      },
+      {
+        "id": 8,
+        "name": "Kapucnis pulóver",
+        "price": 8000,
+        "category": "ruházat",
+        "stock": 18,
+        "image": "hoodie.jpg"
+      },
+      {
+        "id": 9,
+        "name": "Cipő",
+        "price": 15000,
+        "category": "ruházat",
+        "stock": 22,
+        "image": "shoes.jpg"
+      },
+      {
+        "id": 10,
+        "name": "Kabát",
+        "price": 25000,
+        "category": "ruházat",
+        "stock": 15,
+        "image": "coat.jpg"
+      },
+      {
+        "id": 11,
+        "name": "Csokoládé",
+        "price": 800,
+        "category": "élelmiszer",
+        "stock": 50,
+        "image": "chocolate.jpg"
+      },
+      {
+        "id": 12,
+        "name": "Kenyér",
+        "price": 500,
+        "category": "élelmiszer",
+        "stock": 40,
+        "image": "bread.jpg"
+      },
+      {
+        "id": 13,
+        "name": "Tej",
+        "price": 350,
+        "category": "élelmiszer",
+        "stock": 45,
+        "image": "milk.jpg"
+      },
+      {
+        "id": 14,
+        "name": "Gyümölcs válogatás",
+        "price": 1500,
+        "category": "élelmiszer",
+        "stock": 30,
+        "image": "fruits.jpg"
+      },
+      {
+        "id": 15,
+        "name": "Tészta",
+        "price": 600,
+        "category": "élelmiszer",
+        "stock": 35,
+        "image": "pasta.jpg"
+      }
+    ]
+  }

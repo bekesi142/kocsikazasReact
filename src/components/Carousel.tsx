@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react';
 
+// Az autó típus definíciója
 type CarType = {
     marka: string,
     modell: string,
@@ -10,56 +11,60 @@ type CarType = {
     img: string
 }
 
-const Carousel = () => {
-    const [cars, setCars] = useState<CarType[]>([])
-    const [carIdx, setCarIdx] = useState(0)
+const Carousel: React.FC = () => {
+    // State-ek definíciója
+    const [cars, setCars] = useState<CarType[]>([]); // Az autók listája
+    const [carIdx, setCarIdx] = useState(0); // A kiválasztott autó indexe
 
+    // useEffect hook: komponens betöltésekor fut le
     useEffect(() => {
+        // Adatok lekérése a JSON fájlból
         fetch("autok.json")
-            .then((response) => { return response.json() })
-            .then((data: { autok: CarType[] }) => { setCars(data.autok) })  //vagy ha csak sima lista van akkor nem data.autok hanem siman autok
+            .then((response) => response.json()) // JSON válasz feldolgozása
+            .then((data: { autok: CarType[] }) => {
+                setCars(data.autok); // Autók beállítása a state-ben
+            })
+            .catch(error => {
+                console.error("Hiba az adatok betöltésekor:", error);
+            });
+    }, []); // Üres függőségi tömb: csak egyszer fut le a komponens mountolásakor
 
-        // Rövidebb változat
-        // fetch("autok.json")
-        // .then(res => res.json())
-        // .then(data => setCars(data))
-        // .catch(err => console.error(err))
-
-    }, [])
-
-    const increase = () => {
-        setCarIdx(prev => prev + 1 == cars.length ? 0 : prev + 1)
-    }
-    const decrease = () => {
-        setCarIdx(prev => prev - 1 < 0 ? cars.length - 1 : prev - 1)
-    }
-
-    const [divOpen, setDivOpen] = useState(false)
-
-
-
+    // Autó kiválasztása funkció
+    const handleSelectCar = (index: number) => {
+        setCarIdx(index); // Kiválasztott autó indexének frissítése
+    };
 
     return (
-        <div>
-            {
-                cars.length > 0 && <>
-                    <button onClick={increase}>🦛</button>
-                    <img className='kocsiKep' onClick={() => setDivOpen(prev => !prev)} src={cars[carIdx].img} />
-                    <button onClick={decrease}>🐌</button>
+        <div className="carousel-container">
+            {/* Bal oldalon az autók listája */}
+            <div className='mainContainer'>
+                <div className="car-list">
 
-                    {divOpen &&
-                        <div className='container'>
-                            <div className='sokKocsisDiv'>
-                                {cars.map(car => <img src={car.img} />)}
-                            </div>
-                        </div>}
+                    <ul>
+                        {/* Az autók listájának bejárása és megjelenítése */}
+                        {cars.map((car, index) => (
+                            // Minden autóhoz egy list item és egy gomb
+                            <li key={index}>
+                                <button
+                                    onClick={() => handleSelectCar(index)}
+                                // Kiemeljük a jelenleg kiválasztott autót
+
+                                >
+                                    {car.marka} {car.modell}
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
 
 
-                </>
-            }
-
+                {/* Itt később megjelenítheted a kiválasztott autó részleteit */}
+                <div className="car-details">
+                    {/* A jobb oldalra kerülhet majd a részletes nézet */}
+                </div>
+            </div>
         </div>
-    )
-}
+    );
+};
 
-export default Carousel
+export default Carousel;

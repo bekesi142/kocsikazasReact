@@ -4,14 +4,16 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Cars from './components/Cars'
 import Carousel from './components/Carousel'
+import ProductList from './components/ProductList'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <Cars/>
-      <Carousel/>
+      {/* <Cars/> */}
+      {/* <Carousel/> */}
+      <ProductList/>
     </>
   )
 }

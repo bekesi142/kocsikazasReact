@@ -36,10 +36,10 @@ const Cars = () => {
     }
 
     return (
-        <>
+        <> 
             <div className='nagyDiv'>
                 {cars.map(car =>
-                    <div style={{color: car.sebessegvalto.includes("automata") ? "#91cfa1" : "#02f03e"}}><strong>{car.marka} </strong> {car.modell} </div>)}
+                    <div><strong>{car.marka} </strong> {car.modell} </div>)}
             </div>
         </>
     )
