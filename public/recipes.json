@@ -1,0 +1,140 @@
+{
+    "recipes": [
+      {
+        "id": 1,
+        "title": "Paprikás csirke",
+        "category": "főétel",
+        "preparationTime": 45,
+        "difficulty": "közepes",
+        "ingredients": [
+          "1 kg csirkecomb",
+          "2 fej vöröshagyma",
+          "2 db paprika",
+          "2 db paradicsom",
+          "2 evőkanál pirospaprika",
+          "2 dl tejföl",
+          "só, bors ízlés szerint"
+        ],
+        "favorite": true
+      },
+      {
+        "id": 2,
+        "title": "Gulyásleves",
+        "category": "leves",
+        "preparationTime": 120,
+        "difficulty": "közepes",
+        "ingredients": [
+          "500 g marhahús",
+          "2 fej vöröshagyma",
+          "3 db sárgarépa",
+          "2 db fehérrépa",
+          "4 db burgonya",
+          "1 db paradicsom",
+          "1 db paprika",
+          "köménymag, só, bors"
+        ],
+        "favorite": false
+      },
+      {
+        "id": 3,
+        "title": "Túrós palacsinta",
+        "category": "desszert",
+        "preparationTime": 40,
+        "difficulty": "könnyű",
+        "ingredients": [
+          "250 g liszt",
+          "2 db tojás",
+          "500 ml tej",
+          "csipet só",
+          "500 g túró",
+          "100 g cukor",
+          "1 csomag vaníliás cukor",
+          "citromhéj"
+        ],
+        "favorite": true
+      },
+      {
+        "id": 4,
+        "title": "Zöldségleves",
+        "category": "leves",
+        "preparationTime": 35,
+        "difficulty": "könnyű",
+        "ingredients": [
+          "2 db sárgarépa",
+          "1 db fehérrépa",
+          "1 db zeller",
+          "1 fej vöröshagyma",
+          "2 db burgonya",
+          "petrezselyem",
+          "só, bors"
+        ],
+        "favorite": false
+      },
+      {
+        "id": 5,
+        "title": "Rántott szelet",
+        "category": "főétel",
+        "preparationTime": 30,
+        "difficulty": "könnyű",
+        "ingredients": [
+          "500 g sertéskaraj",
+          "3 db tojás",
+          "200 g zsemlemorzsa",
+          "100 g liszt",
+          "só, bors",
+          "olaj a sütéshez"
+        ],
+        "favorite": false
+      },
+      {
+        "id": 6,
+        "title": "Somlói galuska",
+        "category": "desszert",
+        "preparationTime": 90,
+        "difficulty": "nehéz",
+        "ingredients": [
+          "6 db tojás",
+          "180 g cukor",
+          "180 g liszt",
+          "30 g kakaópor",
+          "250 g vaj",
+          "200 g csokoládé",
+          "100 ml rum",
+          "500 ml tejszín"
+        ],
+        "favorite": true
+      },
+      {
+        "id": 7,
+        "title": "Lecsó",
+        "category": "főétel",
+        "preparationTime": 40,
+        "difficulty": "könnyű",
+        "ingredients": [
+          "6 db paprika",
+          "4 db paradicsom",
+          "2 fej vöröshagyma",
+          "4 db tojás (opcionális)",
+          "só, bors",
+          "olaj"
+        ],
+        "favorite": false
+      },
+      {
+        "id": 8,
+        "title": "Gyümölcsleves",
+        "category": "leves",
+        "preparationTime": 25,
+        "difficulty": "könnyű",
+        "ingredients": [
+          "500 g vegyes gyümölcs",
+          "100 g cukor",
+          "1 rúd fahéj",
+          "1 db citrom",
+          "2 dl tejszín",
+          "1 csomag vaníliás cukor"
+        ],
+        "favorite": false
+      }
+    ]
+  }
