@@ -190,6 +190,15 @@ h1 {
     margin-top: 15px;
 }
 
+.recept {
+    display: flex;
+    flex-direction: row;
+    background-color: #f1f1f1;
+    gap: 1rem;
+    padding-left: 1rem;
+    border-radius: 0.5rem;
+}
+
 .ingredients h4 {
     color: #2a6041;
     margin-bottom: 10px;
