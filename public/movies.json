@@ -1,0 +1,124 @@
+{
+    "movies": [
+      {
+        "id": 1,
+        "title": "A sötét lovag",
+        "director": "Christopher Nolan",
+        "year": 2008,
+        "genre": "action",
+        "rating": 9.0,
+        "isFavorite": false,
+        "posterUrl": "https://via.placeholder.com/250x370?text=Dark+Knight"
+      },
+      {
+        "id": 2,
+        "title": "Eredet",
+        "director": "Christopher Nolan",
+        "year": 2010,
+        "genre": "sci-fi",
+        "rating": 8.8,
+        "isFavorite": false,
+        "posterUrl": "https://via.placeholder.com/250x370?text=Inception"
+      },
+      {
+        "id": 3,
+        "title": "Pulp Fiction",
+        "director": "Quentin Tarantino",
+        "year": 1994,
+        "genre": "drama",
+        "rating": 8.9,
+        "isFavorite": false,
+        "posterUrl": "https://via.placeholder.com/250x370?text=Pulp+Fiction"
+      },
+      {
+        "id": 4,
+        "title": "Másnaposok",
+        "director": "Todd Phillips",
+        "year": 2009,
+        "genre": "comedy",
+        "rating": 7.7,
+        "isFavorite": false,
+        "posterUrl": "https://via.placeholder.com/250x370?text=The+Hangover"
+      },
+      {
+        "id": 5,
+        "title": "Interstellar",
+        "director": "Christopher Nolan",
+        "year": 2014,
+        "genre": "sci-fi",
+        "rating": 8.6,
+        "isFavorite": false,
+        "posterUrl": "https://via.placeholder.com/250x370?text=Interstellar"
+      },
+      {
+        "id": 6,
+        "title": "Apokalipszis most",
+        "director": "Francis Ford Coppola",
+        "year": 1979,
+        "genre": "drama",
+        "rating": 8.4,
+        "isFavorite": false,
+        "posterUrl": "https://via.placeholder.com/250x370?text=Apocalypse+Now"
+      },
+      {
+        "id": 7,
+        "title": "Bérgyilkosok",
+        "director": "Robert Rodriguez",
+        "year": 2010,
+        "genre": "action",
+        "rating": 7.0,
+        "isFavorite": false,
+        "posterUrl": "https://via.placeholder.com/250x370?text=Machete"
+      },
+      {
+        "id": 8,
+        "title": "Régi motorosok",
+        "director": "Jon Turteltaub",
+        "year": 2013,
+        "genre": "comedy",
+        "rating": 6.7,
+        "isFavorite": false,
+        "posterUrl": "https://via.placeholder.com/250x370?text=Last+Vegas"
+      },
+      {
+        "id": 9,
+        "title": "Az acélember",
+        "director": "Zack Snyder",
+        "year": 2013,
+        "genre": "action",
+        "rating": 7.1,
+        "isFavorite": false,
+        "posterUrl": "https://via.placeholder.com/250x370?text=Man+of+Steel"
+      },
+      {
+        "id": 10,
+        "title": "Mátrix",
+        "director": "Lana és Lilly Wachowski",
+        "year": 1999,
+        "genre": "sci-fi",
+        "rating": 8.7,
+        "isFavorite": false,
+        "posterUrl": "https://via.placeholder.com/250x370?text=The+Matrix"
+      },
+      {
+        "id": 11,
+        "title": "Lopott idő",
+        "director": "Andrew Niccol",
+        "year": 2011,
+        "genre": "sci-fi",
+        "rating": 6.7,
+        "isFavorite": false,
+        "posterUrl": "https://via.placeholder.com/250x370?text=In+Time"
+      },
+      {
+        "id": 12,
+        "title": "Az éhezők viadala",
+        "director": "Gary Ross",
+        "year": 2012,
+        "genre": "action",
+        "rating": 7.2,
+        "isFavorite": false,
+        "posterUrl": "https://via.placeholder.com/250x370?text=Hunger+Games"
+      }
+    ]
+  }
