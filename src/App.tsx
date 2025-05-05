@@ -7,6 +7,7 @@ import Carousel from './components/Carousel'
 import ProductList from './components/ProductList'
 import RecipeManager from './components/RecipeManager'
 import MovieLibrary from './components/MovieLibrary'
+import BookLibrary from './components/BookLibrary'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,6 +19,7 @@ function App() {
       {/* <ProductList/> */}
       {/* <RecipeManager/> */}
       {/* <MovieLibrary/> */}
+      <BookLibrary/>
     </>
   )
 }
