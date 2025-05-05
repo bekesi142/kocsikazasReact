@@ -1,12 +1,23 @@
-import React from 'react';
-import './MovieLibrary.css';
+import React, { useEffect, useState } from 'react';
+import '../MovieLibrary.css';
 
 // FELADAT 1: Készítsd el a Movie típust
 // A típus tartalmazzon: id, title, director, year, genre, rating, isFavorite, posterUrl mezőket
 // A kódod ide írd:
 
+type Movie = {
+    id: number,
+    title: string,
+    director: string,
+    year: number,
+    genre: string,
+    rating: number,
+    isFavorite: boolean,
+    posterUrl: string
 
-const MovieLibrary: React.FC = () => {
+}
+
+const MovieLibrary = () => {
     // FELADAT 2: Készítsd el a szükséges useState hook-okat
     // - movies: tárolja a filmek listáját
     // - selectedGenre: tárolja a kiválasztott műfajt (alapértelmezett: 'all')
@@ -15,6 +26,11 @@ const MovieLibrary: React.FC = () => {
     // - isLoading: tárolja, hogy éppen töltődnek-e az adatok (alapértelmezett: true)
     // A kódod ide írd:
 
+    const [movies, setMovies] = useState<Movie[]>([]);
+    const [selectedGenre, setSelectedGenre] = useState<string>("all");
+    const [searchTerm, setSearchTerm] = useState<string>('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const [isLoading, setIsLoading] = useState(true)
 
     // FELADAT 3: Készítsd el a useEffect hook-ot, ami betölti a filmeket
     // - A komponens betöltésekor hívjon meg egy fetchMovies függvényt
@@ -23,12 +39,37 @@ const MovieLibrary: React.FC = () => {
     // - Hibakezelés: console.error-ral jelezze a hibát
     // A kódod ide írd:
 
+    function fetchMovies() {
+        fetch("movies.json")
+            .then(response => response.json())
+            .then(data => {
+                setMovies(data.movies)
+                setIsLoading(false);
+            })
+            .catch(error => {
+                console.error("Hiba történt az adatok betöltésekor:", error)
+            })
+    }
+
+    useEffect(() => {
+        fetchMovies();
+    }, [])
+
 
     // FELADAT 4: Készíts egy toggleFavorite függvényt
     // - A függvény paraméterként kapja meg a film azonosítóját (id)
     // - A függvény állítsa át a kiválasztott film isFavorite értékét az ellenkezőjére
     // - Használd a spread operátort (...) az új film objektum és az új filmek tömb létrehozásához
     // A kódod ide írd:
+
+    function toggleFavorite(filmAzonosito: number) {
+        const updatedMovies = movies.map(movie =>
+            movie.id === filmAzonosito
+                ? { ...movie, isFavorite: !movie.isFavorite }
+                : movie
+        );
+        setMovies(updatedMovies);
+    }
 
 
     // FELADAT 5: Készítsd el a szűrő logikát
@@ -37,6 +78,11 @@ const MovieLibrary: React.FC = () => {
     // - A searchTerm-et használja a film címében való kereséshez (case insensitive)
     // A kódod ide írd:
 
+    const filteredMovies = movies.filter(movie => {
+        const matchesGenre = selectedGenre === 'all' || movie.genre.toLowerCase() === selectedGenre.toLowerCase();
+        const matchesSearch = movie.title.toLowerCase().includes(searchTerm.toLowerCase());
+        return matchesGenre && matchesSearch;
+    });
 
     // Lapozás logika
     const moviesPerPage = 4;
@@ -65,7 +111,7 @@ const MovieLibrary: React.FC = () => {
     return (
         <div className="movie-library">
             <h1>Film Könyvtár</h1>
-            
+
             {/* Keresés és szűrés */}
             <div className="controls">
                 <input
@@ -75,33 +121,33 @@ const MovieLibrary: React.FC = () => {
                     onChange={handleSearch}
                     className="search-input"
                 />
-                
+
                 <div className="genre-filters">
-                    <button 
+                    <button
                         className={selectedGenre === 'all' ? 'active' : ''}
                         onClick={() => handleGenreChange('all')}
                     >
                         Összes
                     </button>
-                    <button 
+                    <button
                         className={selectedGenre === 'action' ? 'active' : ''}
                         onClick={() => handleGenreChange('action')}
                     >
                         Akció
                     </button>
-                    <button 
+                    <button
                         className={selectedGenre === 'comedy' ? 'active' : ''}
                         onClick={() => handleGenreChange('comedy')}
                     >
                         Vígjáték
                     </button>
-                    <button 
+                    <button
                         className={selectedGenre === 'drama' ? 'active' : ''}
                         onClick={() => handleGenreChange('drama')}
                     >
                         Dráma
                     </button>
-                    <button 
+                    <button
                         className={selectedGenre === 'sci-fi' ? 'active' : ''}
                         onClick={() => handleGenreChange('sci-fi')}
                     >
@@ -109,7 +155,7 @@ const MovieLibrary: React.FC = () => {
                     </button>
                 </div>
             </div>
-            
+
             {/* Töltés jelző */}
             {isLoading ? (
                 <div className="loading">Filmek betöltése...</div>
@@ -128,9 +174,21 @@ const MovieLibrary: React.FC = () => {
                            - A kedvenc filmeket valahogy emeld ki (pl. más háttérszín)
                         */}
                         {/* A kódod ide írd: */}
-                        
+                        {currentMovies.map(movie => (
+                            <div key={movie.id} className={`movie-card${movie.isFavorite ?  'favorite' : ''}`}>
+                                <h3>{movie.title}</h3>
+                                <p><strong>Rendező:</strong> {movie.director}</p>
+                                <p><strong>Év:</strong> {movie.year}</p>
+                                <p><strong>Műfaj:</strong> {movie.genre}</p>
+                                <p><strong>Értékelés:</strong> {movie.rating}/10</p>
+                                <button onClick={() => toggleFavorite(movie.id)}>
+                                    {movie.isFavorite ? 'Eltávolítás kedvencekből' : 'Kedvencnek jelölés'}
+                                </button>
+                            </div>
+                        ))}
+
                     </div>
-                    
+
                     {/* Lapozó */}
                     <div className="pagination">
                         {Array.from({ length: totalPages }, (_, index) => (

@@ -6,6 +6,7 @@ import Cars from './components/Cars'
 import Carousel from './components/Carousel'
 import ProductList from './components/ProductList'
 import RecipeManager from './components/RecipeManager'
+import MovieLibrary from './components/MovieLibrary'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,7 +16,8 @@ function App() {
       {/* <Cars/> */}
       {/* <Carousel/> */}
       {/* <ProductList/> */}
-      <RecipeManager/>
+      {/* <RecipeManager/> */}
+      {/* <MovieLibrary/> */}
     </>
   )
 }

@@ -1,0 +1,104 @@
+{
+    "books": [
+      {
+        "id": 1,
+        "title": "A Gyűrűk Ura",
+        "author": "J.R.R. Tolkien",
+        "genre": "fantasy",
+        "year": 1954,
+        "rating": 4.8,
+        "coverImage": "lotr.jpg",
+        "isFavorite": false
+      },
+      {
+        "id": 2,
+        "title": "1984",
+        "author": "George Orwell",
+        "genre": "sci-fi",
+        "year": 1949,
+        "rating": 4.6,
+        "coverImage": "1984.jpg",
+        "isFavorite": true
+      },
+      {
+        "id": 3,
+        "title": "Büszkeség és balítélet",
+        "author": "Jane Austen",
+        "genre": "regény",
+        "year": 1813,
+        "rating": 4.5,
+        "coverImage": "pride.jpg",
+        "isFavorite": false
+      },
+      {
+        "id": 4,
+        "title": "Alapítvány",
+        "author": "Isaac Asimov",
+        "genre": "sci-fi",
+        "year": 1951,
+        "rating": 4.4,
+        "coverImage": "foundation.jpg",
+        "isFavorite": false
+      },
+      {
+        "id": 5,
+        "title": "Harry Potter és a Bölcsek Köve",
+        "author": "J.K. Rowling",
+        "genre": "fantasy",
+        "year": 1997,
+        "rating": 4.7,
+        "coverImage": "harry.jpg",
+        "isFavorite": true
+      },
+      {
+        "id": 6,
+        "title": "Kis Herceg",
+        "author": "Antoine de Saint-Exupéry",
+        "genre": "regény",
+        "year": 1943,
+        "rating": 4.9,
+        "coverImage": "prince.jpg",
+        "isFavorite": false
+      },
+      {
+        "id": 7, 
+        "title": "A hobbit",
+        "author": "J.R.R. Tolkien",
+        "genre": "fantasy",
+        "year": 1937,
+        "rating": 4.6,
+        "coverImage": "hobbit.jpg",
+        "isFavorite": false
+      },
+      {
+        "id": 8,
+        "title": "Az éhezők viadala",
+        "author": "Suzanne Collins",
+        "genre": "sci-fi",
+        "year": 2008,
+        "rating": 4.3,
+        "coverImage": "hunger.jpg",
+        "isFavorite": false
+      },
+      {
+        "id": 9,
+        "title": "Anna Karenina",
+        "author": "Lev Tolsztoj",
+        "genre": "regény",
+        "year": 1877,
+        "rating": 4.6,
+        "coverImage": "anna.jpg",
+        "isFavorite": false
+      },
+      {
+        "id": 10,
+        "title": "Neuromancer",
+        "author": "William Gibson",
+        "genre": "sci-fi",
+        "year": 1984,
+        "rating": 4.4,
+        "coverImage": "neuromancer.jpg",
+        "isFavorite": false
+      }
+    ]
+  }
